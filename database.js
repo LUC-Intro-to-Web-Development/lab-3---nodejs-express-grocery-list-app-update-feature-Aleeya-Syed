@@ -59,6 +59,14 @@ let getAllItems = (res) => {
     })
 }
 
+let updateItem = (item_name, item_count, res) =>{
+    var updateGroceryListItem = '[YOUR SQL STATEMENT]'
+    
+    db.run(updateGroceryListItem, function(err) {
+    })
+}
+
+
 
 //Delete a Grocery List Item
 let deleteItem = (recordToDelete, res) =>{

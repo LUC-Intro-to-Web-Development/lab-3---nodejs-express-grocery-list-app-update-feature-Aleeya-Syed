@@ -43,5 +43,9 @@ app.get('/', function (req, res) {
 	
  })
 
+ app.post('/update_item', function (req, res) {
+	console.log("This is the update item");
+
+})
  
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
