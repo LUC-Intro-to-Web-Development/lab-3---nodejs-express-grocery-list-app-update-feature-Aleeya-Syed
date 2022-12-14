@@ -59,6 +59,25 @@ let getAllItems = (res) => {
     })
 }
 
+//Display a grocery item
+let getAItem = (id, res) => {
+    var getGroceryItem = 'SELECT itemID, item_name, item_count FROM grocery_item WHERE itemID = ?';
+    var params = [id];
+    db.get(getGroceryItem, params, function(err, row){
+        if (err) {
+         
+            throw err;
+          }
+          /*rows.forEach((row) => {
+            console.log(row.item_name);
+          });*/
+          console.log(row);
+          res.render('update', {row});
+
+    })
+    
+}
+
 /*
 let updateItem = (item_name, item_count, res) =>{
     var updateGroceryListItem = '[YOUR SQL STATEMENT]'

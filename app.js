@@ -1,3 +1,5 @@
+// Aleeya Syed
+
 const express = require('express')
 const dbOperations = require('./database.js');
 const app = express()
@@ -35,6 +37,15 @@ app.get('/', function (req, res) {
 	
  })
 
+  // Route to update a grocery list item
+  app.post('/update_item', function (req, res) {
+	//Getting body parameters
+	const { updaterecordID} = req.body;
+
+	dbOperations.getAItem(updaterecordID, res);
+
+})
+
  // Route to delete a grocery list item
  app.post('/delete_item', function (req, res) {
 	//Getting body parameters
@@ -43,18 +54,10 @@ app.get('/', function (req, res) {
 	
  })
 
- // Route to update a grocery list item
- app.post('/update_item', function (req, res) {
-	//Getting body parameters
-	const { updaterecordID} = req.body;
+/* Test to make the update route is working
+app.post('/update_item', function (req, res) {
+	console.log("This is the update item route");
 
-	dbOperations.getAItem(updaterecordID, res);
-
-})
-
- app.post('/update_item', function (req, res) {
-	console.log("This is the update item");
-
-})
+})*/
  
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))

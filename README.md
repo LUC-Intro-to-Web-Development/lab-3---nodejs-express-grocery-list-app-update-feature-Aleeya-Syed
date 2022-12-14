@@ -72,3 +72,6 @@ There are a number of ways you can go about achieving this objective.  Think cre
 The lecture videos listed under week 5 will walk you through how the application is built.
 
 [SQLite Update Example](https://www.sqlitetutorial.net/sqlite-update/)
+
+1. 12/2/22
+2. CPST 342 Introduction to Web Development
