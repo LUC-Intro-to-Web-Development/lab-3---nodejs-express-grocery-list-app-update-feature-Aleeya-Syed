@@ -59,14 +59,13 @@ let getAllItems = (res) => {
     })
 }
 
+/*
 let updateItem = (item_name, item_count, res) =>{
     var updateGroceryListItem = '[YOUR SQL STATEMENT]'
     
     db.run(updateGroceryListItem, function(err) {
     })
-}
-
-
+}*/
 
 //Delete a Grocery List Item
 let deleteItem = (recordToDelete, res) =>{
@@ -83,6 +82,26 @@ let deleteItem = (recordToDelete, res) =>{
 
 		console.log("Grocery Item Deleted");
 		console.log(`Rows deleted ${this.changes}`);	  
+	});
+
+    getAllItems(res);
+}
+
+//Update a Grocery List Item
+let updateItem = (updatedItemObject, res) =>{
+    
+    var updateGroceryItem = 'UPDATE grocery_item SET item_name = ?, item_count= ? WHERE itemID = ?';
+	
+    var params = [updatedItemObject.item_name, updatedItemObject.item_count, updatedItemObject.itemID];
+
+	db.run(updateGroceryItem, params, function(err){
+		if (err){
+			return console.log(err.message);
+		}
+    
+
+		console.log("Grocery Item Updated");
+		console.log(`Rows updated ${this.changes}`);	  
 	});
 
     getAllItems(res);

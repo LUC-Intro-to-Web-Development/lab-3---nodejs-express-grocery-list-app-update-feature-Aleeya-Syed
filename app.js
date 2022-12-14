@@ -35,13 +35,22 @@ app.get('/', function (req, res) {
 	
  })
 
- // Route that allows me to delete a grocery list item
+ // Route to delete a grocery list item
  app.post('/delete_item', function (req, res) {
 	//Getting body parameters
 	const { deleterecord} = req.body;
 	dbOperations.deleteItem(deleterecord, res);
 	
  })
+
+ // Route to update a grocery list item
+ app.post('/update_item', function (req, res) {
+	//Getting body parameters
+	const { updaterecordID} = req.body;
+
+	dbOperations.getAItem(updaterecordID, res);
+
+})
 
  app.post('/update_item', function (req, res) {
 	console.log("This is the update item");
